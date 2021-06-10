@@ -72,7 +72,7 @@ Blockly.Python['pepper_say'] = function(block) {
   
   var c_say = 'self.s.ALAnimatedSpeech.say(text, ' + c_config +') \n';
   
-  var code = c_text + c_set_lang + c_say;
+  var code = c_text + c_set_lang + c_say + '\n';
   
   return code;
 }
@@ -94,7 +94,7 @@ Blockly.Python['pepper_voice_reco_list'] = function(block) {
   
   var c_unsub = 'self.s.ALSpeechRecognition.unsubscribe("PepperBlocklyReco") \n'; // stop Reco
   
-  var code = c_words + c_lang + c_vocab + c_sub + c_getreco + c_unsub;
+  var code = c_words + c_lang + c_vocab + c_sub + c_getreco + c_unsub + '\n';
   
   return code;
 }
@@ -130,10 +130,36 @@ Blockly.Python['pepper_walk'] = function(block) {
   }
   
   // assemble the code
-  var code = c_distance + c_speed_prc + c_speed_def + c_speed_if + c_speed + c_time + c_move;
+  var code = c_distance + c_speed_prc + c_speed_def + c_speed_if + c_speed + c_time + c_move + '\n';
   
   // return the code
   return code;
-};
+}
+
+Blockly.Python['pepper_turn'] = function(block) {
+  // Pepper turns
+  
+  // Get Variables from the block
+  var direction = block.getFieldValue('DIRECTION');
+  var degrees = Blockly.Python.valueToCode(block, 'DEGREES', Blockly.Python.ORDER_ATOMIC) || '90';  
+  
+  // Needed for conversion to radians
+  Blockly.Python.definitions_['math'] = 'import math';
+  
+  var c_degrees = 'degrees = ' + degrees + '\n'  // resolve degrees
+  var c_radians = 'radians = math.radians(degrees) \n' // convert to radians
+  
+  var c_turn;
+  if(direction == 'LEFT') {
+    c_turn = 'self.s.ALMotion.moveTo(0, 0, radians) \n';
+  } else if (direction == 'RIGHT') {
+    c_turn = 'self.s.ALMotion.moveTo(0, 0, -radians) \n';
+  }
+  
+  // assemble code
+  var code = c_degrees + c_radians + c_turn + '\n';
+  
+  return code;
+}
 
 

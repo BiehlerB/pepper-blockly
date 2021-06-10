@@ -49,6 +49,60 @@ Blockly.Python['pepper_does'] = function(block) {
     return code;
 }
 
+//
+//  Sprach-Blöcke
+//
+
+Blockly.Python['pepper_say'] = function(block) { 
+  // Pepper says text (with or without animation)
+  
+  // get the variables and code from the block
+  var animation = block.getFieldValue('ANIMATION');
+  var text = Blockly.Python.valueToCode(block, 'TEXT', Blockly.Python.ORDER_ATOMIC) || 'Hallo Welt.';
+  
+  var c_text = 'text = ' + text + ' \n';
+  var c_set_lang = 'self.s.ALTextToSpeech.setLaunguage("German") \n';
+  
+  var c_config;
+  if(animation) {
+    c_config = '{"bodyLanguageMode": "contextual"}';
+  } else {
+    c_config = '{"bodyLanguageMode": "disabled"}';
+  }
+  
+  var c_say = 'self.s.ALAnimatedSpeech.say(text, ' + c_config +') \n';
+  
+  var code = c_text + c_set_lang + c_say;
+  
+  return code;
+}
+
+Blockly.Python['pepper_voice_reco_list'] = function(block) {
+  // Pepper recognizes a Word from a list and saves it to 
+  
+  // Get List and Variable from the block
+  var words = Blockly.Python.valueToCode(block, 'WORD_LIST', Blockly.Python.ORDER_ATOMIC) || '["ja", "nein"]';
+  var recognized_var = Blockly.Python.variableDB_.getName(block.getFieldValue('RECOGNIZED'), Blockly.Variables.NAME_TYPE);
+  
+  var c_words = 'words = ' + words + '\n'; // resolve word list
+  var c_lang = 'self.s.ALSpeechRecognition.setLanguage("German") \n';
+  var c_vocab = 'self.s.ALSpeechRecognition.setVocabulary(words, False) \n'; // prepare Reco
+  var c_sub = 'self.s.ALSpeechRecognition.subscribe("PepperBlocklyReco") \n'; // start Reco
+  
+  // TODO Hope this wórks
+  var c_getreco = recognized_var + ' = self.s.ALMemory.getDataOnChange("PepperBlocklyReco") \n'; // Wait for recognized word
+  
+  var c_unsub = 'self.s.ALSpeechRecognition.unsubscribe("PepperBlocklyReco") \n'; // stop Reco
+  
+  var code = c_words + c_lang + c_vocab + c_sub + c_getreco + c_unsub;
+  
+  return code;
+}
+
+//
+// Bewegungs Blöcke
+//
+
 Blockly.Python['pepper_walk'] = function(block) {
   // Pepper walks.
 
@@ -82,26 +136,4 @@ Blockly.Python['pepper_walk'] = function(block) {
   return code;
 };
 
-Blockly.Python['pepper_say'] = function(block) { 
-  // Pepper says text (with or without animation)
-  
-  // get the variables and code from the block
-  var animation = block.getFieldValue('ANIMATION');
-  var text = Blockly.Python.valueToCode(block, 'TEXT', Blockly.Python.ORDER_ATOMIC) || 'Hallo Welt.';
-  
-  var c_text = 'text = ' + text + ' \n';
-  var c_set_lang = 'self.s.ALTextToSpeech.setLaunguage("German") \n';
-  
-  var c_config;
-  if(animation) {
-    c_config = '{"bodyLanguageMode": "contextual"}';
-  } else {
-    c_config = '{"bodyLanguageMode": "disabled"}';
-  }
-  
-  var c_say = 'self.s.ALAnimatedSpeech.say(text, ' + c_config +') \n';
-  
-  var code = c_text + c_set_lang + c_say;
-  
-  return code;
-}
+

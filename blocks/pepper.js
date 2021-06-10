@@ -18,6 +18,24 @@ goog.require('Blockly.FieldVariable');
 
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+  // Frame Block to generate Template
+  {
+    "type": "pepper_does",
+    "message0": "Pepper macht: %1 %2",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "CODE"
+      }
+    ],
+    "inputsInline": true,
+    "colour": 195,
+    "tooltip": "",
+    "helpUrl": ""
+  },
   // Block for moving pepper in cardinal directions.
   {
   "type": "pepper_walk",

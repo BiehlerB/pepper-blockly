@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blockly Demo: Fixed Blockly</title>
+  <title>Blockly für Pepper</title>
   <script src="../blockly_compressed.js"></script>
   <script src="../blocks_compressed.js"></script>
   <script src="../msg/js/de.js"></script>
@@ -23,7 +23,8 @@
   
   <p> <button onclick=""> Anwendung Speichern </button>
   <button onclick=""> Anwendung Laden </button> 
-  <button onclick="console.log(Blockly.Python.workspaceToCode(demoWorkspace))"> Kompilieren </button> </p>
+  <button onclick="console.log(Blockly.Python.workspaceToCode(demoWorkspace))"> Kompilieren </button> 
+  </p>
 
   <div id="blocklyDiv" style="height: 780px; width: 1400px;"></div>
 
@@ -385,7 +386,11 @@
   <category name="Variablen" colour="#a55b80" custom="VARIABLE"></category>
   <category name="Funktionen" colour="#995ba5" custom="PROCEDURE"></category>
   <sep></sep>
-  <category name="Pepper"></category>
+  <category name="Pepper">
+    <block type="pepper_does">
+      <comment pinned="false" h="80" w="160">Füge hier ein, was Pepper machen soll.</comment>
+    </block>
+  </category>
   <category name="Sprache" colour="#5ba58c">
     <block type="pepper_say">
       <field name="ANIMATION">TRUE</field>

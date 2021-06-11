@@ -24,18 +24,15 @@ var pepperIP = 'pepper.local';
 Blockly.Python['pepper_does'] = function(block) {
     // Frame Block that creates the template around the generated code
     
-    // janky method to indent the code into onStart
-    var c_code = Blockly.Python.statementToCode(block, 'CODE');
-    var c_code_indented = '  ' + c_code.replaceAll("\n", "\n  ");
-    
-    // __version__, __copyright__, __author__, __email__ TODO Wahrscheinlich nicht benötigt
-    // TODO self.qiapp.stop statt eigener stp methode?
-    
     // Add the imports from jumpstarter
     Blockly.Python.definitions_['stkrunner'] = 'import stk.runner';
     Blockly.Python.definitions_['stkevents'] = 'import stk.events';
     Blockly.Python.definitions_['stkservices'] = 'import stk.services';
     Blockly.Python.definitions_['stklogging'] = 'import stk.logging';
+    
+    /// official way to indent
+    var c_code = Blockly.Python.statementToCode(block, 'CODE');
+    var c_code_indented = Blockly.Python.prefixLines(c_code, '  ');
     
     // Prefix
     var c_class = 'class Activity(object):\n' + '  APP_ID = "com.aldeberan.BlocklyPepper"\n';
@@ -61,7 +58,7 @@ Blockly.Python['pepper_say'] = function(block) {
   var text = Blockly.Python.valueToCode(block, 'TEXT', Blockly.Python.ORDER_ATOMIC) || 'Hallo Welt.';
   
   var c_text = 'text = ' + text + ' \n';
-  var c_set_lang = 'self.s.ALTextToSpeech.setLaunguage("German") \n';
+  var c_set_lang = 'self.s.ALTextToSpeech.setLanguage("German") \n';
   
   var c_config;
   if(animation) {
@@ -86,15 +83,16 @@ Blockly.Python['pepper_voice_reco_list'] = function(block) {
   
   var c_words = 'words = ' + words + '\n'; // resolve word list
   var c_lang = 'self.s.ALSpeechRecognition.setLanguage("German") \n';
+  var c_pause = 'self.s.ALSpeechRecognition.pause(True) \n';
   var c_vocab = 'self.s.ALSpeechRecognition.setVocabulary(words, False) \n'; // prepare Reco
+  var c_unpause = 'self.s.ALSpeechRecognition.pause(False) \n';
   var c_sub = 'self.s.ALSpeechRecognition.subscribe("PepperBlocklyReco") \n'; // start Reco
   
-  // TODO Hope this wórks
-  var c_getreco = recognized_var + ' = self.s.ALMemory.getDataOnChange("PepperBlocklyReco") \n'; // Wait for recognized word
+  var c_getreco = recognized_var + ' = self.s.ALMemory.getDataOnChange("WordRecognized", 0)[0] \n'; // This is deprecated, but works
   
   var c_unsub = 'self.s.ALSpeechRecognition.unsubscribe("PepperBlocklyReco") \n'; // stop Reco
   
-  var code = c_words + c_lang + c_vocab + c_sub + c_getreco + c_unsub + '\n';
+  var code = c_words + c_lang + c_pause + c_vocab + c_unpause + c_sub + c_getreco + c_unsub + '\n';
   
   return code;
 }

@@ -198,7 +198,10 @@ Blockly.Python.finish = function(code) {
   delete Blockly.Python.functionNames_;
   Blockly.Python.variableDB_.reset();
   var allDefs = imports.join('\n') + '\n\n' + definitions.join('\n\n');
-  return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
+  var defsCode = allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
+  
+  // Small Adjustments for pepper-blockly
+  return '#!/usr/bin/env python \n# -*- coding: utf-8 -*-\n\n' + defsCode;
 };
 
 /**

@@ -23,7 +23,7 @@
   
   <p> <button onclick=""> Anwendung Speichern </button>
   <button onclick=""> Anwendung Laden </button> 
-  <button onclick="console.log(Blockly.Python.workspaceToCode(demoWorkspace))"> Kompilieren </button> 
+  <button onclick="var code = Blockly.Python.workspaceToCode(demoWorkspace); navigator.clipboard.writeText(code); alert(code)"> Anzeigen und Kopieren </button>
   </p>
 
   <div id="blocklyDiv" style="height: 780px; width: 1400px;"></div>
@@ -419,24 +419,6 @@ Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
               <field name="TEXT">Nein</field>
             </shadow>
           </value>
-        </shadow>
-      </value>
-    </block>
-    <block type="pepper_voice_reco_3">
-      <comment pinned="false" h="80" w="160">Pepper versucht eines der 3 Worte zu erkennen. Je nach dem welches Wort erkannt wird, führt Pepper dann die Blöcke darunter aus.</comment>
-      <value name="ONE_WORD">
-        <shadow type="text">
-          <field name="TEXT">Ja</field>
-        </shadow>
-      </value>
-      <value name="TWO_WORD">
-        <shadow type="text">
-          <field name="TEXT">Nein</field>
-        </shadow>
-      </value>
-      <value name="THREE_WORD">
-        <shadow type="text">
-          <field name="TEXT">Stopp</field>
         </shadow>
       </value>
     </block>

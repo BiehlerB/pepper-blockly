@@ -116,51 +116,6 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   "helpUrl": ""
 },
 {
-  "type": "pepper_voice_reco_3",
-  "message0": "Spracherkennung %1 Bei: %2 %3 Bei: %4 %5 Bei: %6 %7",
-  "args0": [
-    {
-      "type": "input_dummy"
-    },
-    {
-      "type": "input_value",
-      "name": "ONE_WORD",
-      "check": "String",
-      "align": "RIGHT"
-    },
-    {
-      "type": "input_statement",
-      "name": "ONE_FUNC",
-      "align": "RIGHT"
-    },
-    {
-      "type": "input_value",
-      "name": "TWO_WORD",
-      "check": "String",
-      "align": "RIGHT"
-    },
-    {
-      "type": "input_statement",
-      "name": "TWO_FUNC"
-    },
-    {
-      "type": "input_value",
-      "name": "THREE_WORD",
-      "check": "String",
-      "align": "RIGHT"
-    },
-    {
-      "type": "input_statement",
-      "name": "THREE_FUNC"
-    }
-  ],
-  "previousStatement": null,
-  "nextStatement": null,
-  "colour": 160,
-  "tooltip": "",
-  "helpUrl": ""
-},
-{
   "type": "pepper_voice_reco_list",
   "message0": "Spracherkennung in %1 aus: %2",
   "args0": [

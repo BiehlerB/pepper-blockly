@@ -7,6 +7,9 @@
   <script src="../blocks_compressed.js"></script>
   <script src="../msg/js/de.js"></script>
   <script src="../python_compressed.js"></script>
+  
+  <script src="scripts.js"></script>
+  
   <style>
     body {
       background-color: #fff;
@@ -18,12 +21,12 @@
     }
   </style>
 </head>
-<body>
+<body onload="init_workspace()">
   <h1>Blockly für Pepper</h1>
   
-  <p> <button onclick=""> Anwendung Speichern </button>
-  <button onclick=""> Anwendung Laden </button> 
-  <button onclick="var code = Blockly.Python.workspaceToCode(demoWorkspace); navigator.clipboard.writeText(code); alert(code)"> Anzeigen und Kopieren </button>
+  <p> <button onclick="button_save()"> Anwendung Speichern </button>
+  <button onclick="button_load()"> Anwendung Laden </button> 
+  <button onclick="button_copy(demoWorkspace)"> Anzeigen und Kopieren </button>
   </p>
 
   <div id="blocklyDiv" style="height: 780px; width: 1400px;"></div>
@@ -451,40 +454,6 @@ Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeb
     </block>
   </category>
 </xml>
-
-  <script>
-    var demoWorkspace = Blockly.inject('blocklyDiv',
-    { 
-        toolbox : toolbox, 
-        collapse : true, 
-        comments : true, 
-        disable : true, 
-        maxBlocks : Infinity, 
-        trashcan : true, 
-        horizontalLayout : false, 
-        toolboxPosition : 'start', 
-        css : true, 
-        media : 'https://blockly-demo.appspot.com/static/media/', 
-        rtl : false, 
-        scrollbars : true, 
-        sounds : true, 
-        oneBasedIndex : true, 
-        grid : {
-            spacing : 20, 
-            length : 1, 
-            colour : '#888', 
-            snap : false
-        }, 
-        zoom : {
-            controls : true, 
-            wheel : true, 
-            startScale : 1, 
-            maxScale : 3, 
-            minScale : 0.3, 
-            scaleSpeed : 1.2
-        }
-    });
-  </script>
 
 </body>
 </html>

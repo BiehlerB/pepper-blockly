@@ -18,8 +18,8 @@ goog.require('Blockly.Python');
 // If any new block imports any library, add that library name here.
 Blockly.Python.addReservedWords('qi,naoqi,ALProxy');
 
-// Change to IP of Pepper
-var pepperIP = 'pepper.local';
+// Default Code for unimplemented Blocks
+var defaultCode = 'self.s.ALTextToSpeech.setLanguage("German")\nself.s.ALAnimatedSpeech.say("Noch nicht implementiert.", {"bodyLanguageMode": "contextual"})\n';
 
 Blockly.Python['pepper_does'] = function(block) {
     // Frame Block that creates the template around the generated code
@@ -37,7 +37,11 @@ Blockly.Python['pepper_does'] = function(block) {
     // Prefix
     var c_class = 'class Activity(object):\n' + '  APP_ID = "com.aldeberan.BlocklyPepper"\n';
     var c_init = '  def __init__(self, qiapp):\n' + '    self.qiapp = qiapp\n' + '    self.events = stk.events.EventHelper(qiapp.session)\n' + '    self.s = stk.services.ServiceCache(qiapp.session)\n' + '    self.logger = stk.logging.get_logger(qiapp.session, self.APP_ID)\n' + '  \n';
-    var c_onstart =  '  def on_start(self):\n' + c_code_indented + '  self.qiapp.stop()\n' + '  \n';
+    
+    // Onstart with Code
+    var c_onstart =  '  def on_start(self):\n' + c_code_indented + '    self.qiapp.stop()\n' + '  \n';
+    
+    // Postfix
     var c_onstop =  '  def on_stop(self):\n' + '    self.logger.info("Application Finished.")\n' + '    self.events.clear()\n' + '  \n';
     var c_main = 'if __name__ == "__main__":\n' + '  stk.runner.run_activity(Activity)\n';
     
@@ -97,6 +101,12 @@ Blockly.Python['pepper_voice_reco_list'] = function(block) {
   return code;
 }
 
+Blockly.Python['pepper_change_volume'] = function(block) {
+  var value_volume = Blockly.Python.valueToCode(block, 'VOLUME', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  return defaultCode;
+};
+
 //
 // Bewegungs Blöcke
 //
@@ -134,6 +144,24 @@ Blockly.Python['pepper_walk'] = function(block) {
   return code;
 }
 
+Blockly.Python['pepper_animation'] = function(block) {
+  // TODO: This doesn't quite work as intended (TaiChi etc. isn't predefined on pepper, just in Choregraphe)
+  // For now this just plays one animation
+  
+  // Get Variables from Block
+  var animation = block.getFieldValue('ANIMATION');
+  
+  // Get the Animation path Hey_1
+  var c_path = 'anim_path =  "animations/Stand/Gestures/ShowSky_4"\n';
+  
+  // execute the animation
+  var c_run = 'self.s.ALAnimationPlayer.run(anim_path)\n';
+  
+  // assemble and return the code
+  var code = c_path + c_run;
+  return code;
+};
+
 Blockly.Python['pepper_turn'] = function(block) {
   // Pepper turns
   
@@ -160,4 +188,24 @@ Blockly.Python['pepper_turn'] = function(block) {
   return code;
 }
 
+// 
+//  Gesichter
+//
+Blockly.Python['pepper_expression_reco'] = function(block) {
+  var expression_var = Blockly.Python.variableDB_.getName(block.getFieldValue('EXPRESSION'), Blockly.Variables.NAME_TYPE);
+  
+  // TODO: Assemble Python into code variable.
+  // TODO: Random expression for each compile as standin
+  var expressions = ["neutral", "glücklich", "überrascht", "wütend", "traurig"];
+  var expression_rand = "'" + expressions[Math.floor(Math.random()*5)] + "'";
+  
+  var c_standin = expression_var + " = " + expression_rand + '\n \n';
+  
+  return c_standin;
+};
 
+Blockly.Python['pepper_save_face'] = function(block) {
+  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
+  // TODO: Assemble Python into code variable.
+  return defaultCode;
+};

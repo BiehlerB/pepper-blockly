@@ -116,6 +116,71 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   "helpUrl": ""
 },
 {
+  "type": "pepper_animation",
+  "message0": "Entertainment-Animation ausführen: %1",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "ANIMATION",
+      "options": [
+        [
+          "Tai-Chi",
+          "TAICHI"
+        ],
+        [
+          "Disco",
+          "DISCO"
+        ],
+        [
+          "Headbangen",
+          "HEADBANG"
+        ],
+        [
+          "Elefant",
+          "ELEPHANT"
+        ],
+        [
+          "Maus",
+          "MOUSE"
+        ],
+        [
+          "Staubsauger",
+          "VACUUM"
+        ],
+        [
+          "Mystisch",
+          "MYSTICAL"
+        ],
+        [
+          "Foto schießen",
+          "TAKEPICTURE"
+        ],
+        [
+          "Saxophon spielen",
+          "SAXOPHONE"
+        ],
+        [
+          "Luftgitarre",
+          "GUITAR"
+        ],
+        [
+          "Golf",
+          "GOLF"
+        ],
+        [
+          "Fußball",
+          "FOOTBALL"
+        ]
+      ]
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 65,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
   "type": "pepper_voice_reco_list",
   "message0": "Spracherkennung in %1 aus: %2",
   "args0": [
@@ -155,6 +220,55 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   "previousStatement": null,
   "nextStatement": null,
   "colour": 160,
+  "tooltip": "",
+  "helpUrl": ""
+}, 
+{
+  "type": "pepper_change_volume",
+  "message0": "Lautstärke setzen: %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "VOLUME",
+      "check": "Number"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 160,
+  "tooltip": "",
+  "helpUrl": ""
+},
+// Gesichter
+{
+  "type": "pepper_expression_reco",
+  "message0": "Gesichtsausdruck erkennen in %1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "EXPRESSION",
+      "variable": "ausdruck"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 210,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "pepper_save_face",
+  "message0": "Gesicht unter Namen %1 abspeichern",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "String"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 210,
   "tooltip": "",
   "helpUrl": ""
 }

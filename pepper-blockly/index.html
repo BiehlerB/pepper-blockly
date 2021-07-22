@@ -41,11 +41,6 @@
       <field name="OP">AND</field>
     </block>
     <block type="logic_negate"></block>
-    <block type="logic_boolean">
-      <field name="BOOL">TRUE</field>
-    </block>
-    <block type="logic_null"></block>
-    <block type="logic_ternary"></block>
   </category>
   <category name="Schleifen" colour="#5ba55b">
     <block type="controls_repeat_ext">
@@ -57,27 +52,6 @@
     </block>
     <block type="controls_whileUntil">
       <field name="MODE">WHILE</field>
-    </block>
-    <block type="controls_for">
-      <field name="VAR" id="oe;o?Ii7r/y%`or|q;m6">i</field>
-      <value name="FROM">
-        <shadow type="math_number">
-          <field name="NUM">1</field>
-        </shadow>
-      </value>
-      <value name="TO">
-        <shadow type="math_number">
-          <field name="NUM">10</field>
-        </shadow>
-      </value>
-      <value name="BY">
-        <shadow type="math_number">
-          <field name="NUM">1</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="controls_forEach">
-      <field name="VAR" id="jXo}tZEEL[omb$En6T9[">j</field>
     </block>
     <block type="controls_flow_statements">
       <field name="FLOW">BREAK</field>
@@ -100,88 +74,6 @@
         </shadow>
       </value>
     </block>
-    <block type="math_single">
-      <field name="OP">ROOT</field>
-      <value name="NUM">
-        <shadow type="math_number">
-          <field name="NUM">9</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="math_trig">
-      <field name="OP">SIN</field>
-      <value name="NUM">
-        <shadow type="math_number">
-          <field name="NUM">45</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="math_constant">
-      <field name="CONSTANT">PI</field>
-    </block>
-    <block type="math_number_property">
-      <mutation divisor_input="false"></mutation>
-      <field name="PROPERTY">EVEN</field>
-      <value name="NUMBER_TO_CHECK">
-        <shadow type="math_number">
-          <field name="NUM">0</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="math_round">
-      <field name="OP">ROUND</field>
-      <value name="NUM">
-        <shadow type="math_number">
-          <field name="NUM">3.1</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="math_on_list">
-      <mutation op="SUM"></mutation>
-      <field name="OP">SUM</field>
-    </block>
-    <block type="math_modulo">
-      <value name="DIVIDEND">
-        <shadow type="math_number">
-          <field name="NUM">64</field>
-        </shadow>
-      </value>
-      <value name="DIVISOR">
-        <shadow type="math_number">
-          <field name="NUM">10</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="math_constrain">
-      <value name="VALUE">
-        <shadow type="math_number">
-          <field name="NUM">50</field>
-        </shadow>
-      </value>
-      <value name="LOW">
-        <shadow type="math_number">
-          <field name="NUM">1</field>
-        </shadow>
-      </value>
-      <value name="HIGH">
-        <shadow type="math_number">
-          <field name="NUM">100</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="math_random_int">
-      <value name="FROM">
-        <shadow type="math_number">
-          <field name="NUM">1</field>
-        </shadow>
-      </value>
-      <value name="TO">
-        <shadow type="math_number">
-          <field name="NUM">100</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="math_random_float"></block>
   </category>
   <category name="Text" colour="#5ba58c">
     <block type="text">
@@ -190,21 +82,6 @@
     <block type="text_join">
       <mutation items="2"></mutation>
     </block>
-    <block type="text_append">
-      <field name="VAR" id="||irI4KI|=jeu9(CA]#v">item</field>
-      <value name="TEXT">
-        <shadow type="text">
-          <field name="TEXT"></field>
-        </shadow>
-      </value>
-    </block>
-    <block type="text_length">
-      <value name="VALUE">
-        <shadow type="text">
-          <field name="TEXT">abc</field>
-        </shadow>
-      </value>
-    </block>
     <block type="text_isEmpty">
       <value name="VALUE">
         <shadow type="text">
@@ -212,64 +89,7 @@
         </shadow>
       </value>
     </block>
-    <block type="text_indexOf">
-      <field name="END">FIRST</field>
-      <value name="VALUE">
-        <block type="variables_get">
-          <field name="VAR" id="/[n5/*!xRy~b}4}Q1,(D">text</field>
-        </block>
-      </value>
-      <value name="FIND">
-        <shadow type="text">
-          <field name="TEXT">abc</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="text_charAt">
-      <mutation at="true"></mutation>
-      <field name="WHERE">FROM_START</field>
-      <value name="VALUE">
-        <block type="variables_get">
-          <field name="VAR" id="/[n5/*!xRy~b}4}Q1,(D">text</field>
-        </block>
-      </value>
-    </block>
-    <block type="text_getSubstring">
-      <mutation at1="true" at2="true"></mutation>
-      <field name="WHERE1">FROM_START</field>
-      <field name="WHERE2">FROM_START</field>
-      <value name="STRING">
-        <block type="variables_get">
-          <field name="VAR" id="/[n5/*!xRy~b}4}Q1,(D">text</field>
-        </block>
-      </value>
-    </block>
-    <block type="text_changeCase">
-      <field name="CASE">UPPERCASE</field>
-      <value name="TEXT">
-        <shadow type="text">
-          <field name="TEXT">abc</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="text_trim">
-      <field name="MODE">BOTH</field>
-      <value name="TEXT">
-        <shadow type="text">
-          <field name="TEXT">abc</field>
-        </shadow>
-      </value>
-    </block>
     <block type="text_print">
-      <value name="TEXT">
-        <shadow type="text">
-          <field name="TEXT">abc</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="text_prompt_ext">
-      <mutation type="TEXT"></mutation>
-      <field name="TYPE">TEXT</field>
       <value name="TEXT">
         <shadow type="text">
           <field name="TEXT">abc</field>
@@ -284,106 +104,8 @@
     <block type="lists_create_with">
       <mutation items="3"></mutation>
     </block>
-    <block type="lists_repeat">
-      <value name="NUM">
-        <shadow type="math_number">
-          <field name="NUM">5</field>
-        </shadow>
-      </value>
-    </block>
     <block type="lists_length"></block>
     <block type="lists_isEmpty"></block>
-    <block type="lists_indexOf">
-      <field name="END">FIRST</field>
-      <value name="VALUE">
-        <block type="variables_get">
-          <field name="VAR" id="w2^i_}8ldYw()Pe#4_~@">list</field>
-        </block>
-      </value>
-    </block>
-    <block type="lists_getIndex">
-      <mutation statement="false" at="true"></mutation>
-      <field name="MODE">GET</field>
-      <field name="WHERE">FROM_START</field>
-      <value name="VALUE">
-        <block type="variables_get">
-          <field name="VAR" id="w2^i_}8ldYw()Pe#4_~@">list</field>
-        </block>
-      </value>
-    </block>
-    <block type="lists_setIndex">
-      <mutation at="true"></mutation>
-      <field name="MODE">SET</field>
-      <field name="WHERE">FROM_START</field>
-      <value name="LIST">
-        <block type="variables_get">
-          <field name="VAR" id="w2^i_}8ldYw()Pe#4_~@">list</field>
-        </block>
-      </value>
-    </block>
-    <block type="lists_getSublist">
-      <mutation at1="true" at2="true"></mutation>
-      <field name="WHERE1">FROM_START</field>
-      <field name="WHERE2">FROM_START</field>
-      <value name="LIST">
-        <block type="variables_get">
-          <field name="VAR" id="w2^i_}8ldYw()Pe#4_~@">list</field>
-        </block>
-      </value>
-    </block>
-    <block type="lists_split">
-      <mutation mode="SPLIT"></mutation>
-      <field name="MODE">SPLIT</field>
-      <value name="DELIM">
-        <shadow type="text">
-          <field name="TEXT">,</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="lists_sort">
-      <field name="TYPE">NUMERIC</field>
-      <field name="DIRECTION">1</field>
-    </block>
-  </category>
-  <category name="Farbe" colour="#a5745b">
-    <block type="colour_picker">
-      <field name="COLOUR">#ff0000</field>
-    </block>
-    <block type="colour_random"></block>
-    <block type="colour_rgb">
-      <value name="RED">
-        <shadow type="math_number">
-          <field name="NUM">100</field>
-        </shadow>
-      </value>
-      <value name="GREEN">
-        <shadow type="math_number">
-          <field name="NUM">50</field>
-        </shadow>
-      </value>
-      <value name="BLUE">
-        <shadow type="math_number">
-          <field name="NUM">0</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="colour_blend">
-      <value name="COLOUR1">
-        <shadow type="colour_picker">
-          <field name="COLOUR">#ff0000</field>
-        </shadow>
-      </value>
-      <value name="COLOUR2">
-        <shadow type="colour_picker">
-          <field name="COLOUR">#3333ff</field>
-        </shadow>
-      </value>
-      <value name="RATIO">
-        <shadow type="math_number">
-          <field name="NUM">0.5</field>
-        </shadow>
-      </value>
-    </block>
   </category>
   <sep></sep>
   <category name="Variablen" colour="#a55b80" custom="VARIABLE"></category>
@@ -391,16 +113,14 @@
   <sep></sep>
   <category name="Pepper">
     <block type="pepper_does">
-      <comment pinned="false" h="80" w="160">Füge hier ein, was Pepper machen soll.</comment>
+      <comment pinned="false" h="160" w="320">Füge hier ein, was Pepper machen soll.</comment>
     </block>
   </category>
   <category name="Sprache" colour="#5ba58c">
     <block type="pepper_say">
       <field name="ANIMATION">TRUE</field>
-      <comment pinned="false" h="80" w="160">Pepper sagt den angegebenen Text.
+      <comment pinned="false" h="160" w="320">Pepper sagt den angegebenen Text.
 Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
-      
-      
       </comment>
       <value name="TEXT">
         <shadow type="text">
@@ -410,7 +130,7 @@ Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
     </block>
     <block type="pepper_voice_reco_list">
       <field name="RECOGNIZED" id="1*lWDH9I*0g`dn21LE-X">erkanntes_wort</field>
-      <comment pinned="false" h="80" w="160">Pepper versucht eines der Worte auf der Liste zu erkennen. Wird eines der Worte erkannt, so wird es in der ausgewählten Variable abgespeichert.</comment>
+      <comment pinned="false" h="160" w="320">Pepper versucht eines der Worte auf der Liste zu erkennen. Wird eines der Worte erkannt, so wird es in der ausgewählten Variable abgespeichert.</comment>
       <value name="WORD_LIST">
         <shadow type="lists_create_with">
           <mutation items="2"></mutation>
@@ -427,8 +147,12 @@ Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
         </shadow>
       </value>
     </block>
+    <block type="pepper_voice_reco">
+      <comment pinned="false" h="160" w="320">Pepper versucht eines der Worte zu erkennen, die in den Value-Inputs spezifiziert sind. Wird eines der Worte erkannt, werden die darunter stehende Anweisungen ausgeführt.
+      </comment>
+    </block>
     <block type="pepper_change_volume">
-      <comment pinned="false" h="80" w="160">Setzt die Lautstärke in Prozent von 0 (Stumm) bis 100 (volle Lautstärke).</comment>
+      <comment pinned="false" h="160" w="320">Setzt die Lautstärke in Prozent von 0 (Stumm) bis 100 (volle Lautstärke).</comment>
       <value name="VOLUME">
         <shadow type="math_number">
           <field name="NUM">100</field>
@@ -439,8 +163,10 @@ Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
   <category name="Bewegung" colour="#9fa55b">
     <block type="pepper_walk">
       <field name="DIRECTION">FORWARD</field>
-      <comment pinned="false" h="80" w="160">Pepper bewegt sich die angegebene Distanz in Metern in die angegebene kardinale Rchtung.
+      <comment pinned="false" h="160" w="320">Pepper bewegt sich die angegebene Distanz in Metern in die angegebene kardinale Rchtung.
 Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeben.
+      
+      
       
       
       </comment>
@@ -457,7 +183,7 @@ Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeb
     </block>
     <block type="pepper_turn">
       <field name="DIRECTION">LEFT</field>
-      <comment pinned="false" h="80" w="160">Pepper dreht sich in die angegebene Richtung (von sich aus) um den angegebenen Winkel in Grad.</comment>
+      <comment pinned="false" h="160" w="320">Pepper dreht sich in die angegebene Richtung (von sich aus) um den angegebenen Winkel in Grad.</comment>
       <value name="DEGREES">
         <shadow type="math_number">
           <field name="NUM">90</field>
@@ -466,22 +192,21 @@ Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeb
     </block>
     <block type="pepper_animation">
       <field name="ANIMATION">TAICHI</field>
-      <comment pinned="false" h="80" w="160">Pepper führt eine der vordefinierten Entertainment-Animationen aus. Diese sind z.T. das Nachspielen von Tieren, Tänze oder Sportarten.</comment>
+      <comment pinned="false" h="160" w="320">Pepper führt eine der vordefinierten Entertainment-Animationen aus. Diese sind z.T. das Nachspielen von Tieren, Tänze oder Sportarten.</comment>
     </block>
   </category>
   <category name="Gesichter" colour="#5b67a5">
     <block type="pepper_save_face">
-      <comment pinned="false" h="80" w="160">Speichert das erste Gesicht, das Pepper erkennt unter dem angegebenen Namen ab. Dieser Name kann später durch Gesichtserkennung wieder abgerufen werden.</comment>
+      <comment pinned="false" h="160" w="320">Speichert das erste Gesicht, das Pepper erkennt unter dem angegebenen Namen ab. Dieser Name kann später durch Gesichtserkennung wieder abgerufen werden.</comment>
       <value name="NAME">
         <shadow type="text">
           <field name="TEXT">Max</field>
         </shadow>
       </value>
     </block>
-    <block type="pepper_expression_reco">
-      <field name="EXPRESSION" id="[CLBsHtAp@A@j%@)xjBJ">ausdruck</field>
-      <comment pinned="false" h="80" w="160">Versucht im ersten Gesicht, das Pepper erkennt, eine von fünf Emotionen zu erkennen. Speichert die entsprechende Emotion in der angegebenen Variable ab.
-Die Emotionen sind: 'neutral', 'glücklich', 'überrascht', 'wütend' und 'traurig'.
+    <block type="pepper_expression_case">
+      <comment pinned="false" h="128" w="288">Analysiert den Gesichtsausdruck der Person mit der Pepper interagiert.
+Führt dann die entsprechenden Blöcke aus, je nachdem welchen Gesichtsausdruck Pepper erkannt hat.
       </comment>
     </block>
   </category>

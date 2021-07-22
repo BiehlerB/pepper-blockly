@@ -101,6 +101,11 @@ Blockly.Python['pepper_voice_reco_list'] = function(block) {
   return code;
 }
 
+Blockly.Python['pepper_voice_reco'] = function(block) {
+  // TODO: Assemble Python into code variable
+  return defaultCode;
+}
+
 Blockly.Python['pepper_change_volume'] = function(block) {
   var value_volume = Blockly.Python.valueToCode(block, 'VOLUME', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
@@ -207,5 +212,16 @@ Blockly.Python['pepper_expression_reco'] = function(block) {
 Blockly.Python['pepper_save_face'] = function(block) {
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
+  return defaultCode;
+};
+
+Blockly.JavaScript['pepper_expression_case'] = function(block) {
+  var statements_happy = Blockly.JavaScript.statementToCode(block, 'HAPPY');
+  var statements_sad = Blockly.JavaScript.statementToCode(block, 'SAD');
+  var statements_shocked = Blockly.JavaScript.statementToCode(block, 'SHOCKED');
+  var statements_angry = Blockly.JavaScript.statementToCode(block, 'ANGRY');
+  var statements_neutral = Blockly.JavaScript.statementToCode(block, 'NEUTRAL');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
   return defaultCode;
 };

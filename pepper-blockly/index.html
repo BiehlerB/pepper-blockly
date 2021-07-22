@@ -113,15 +113,14 @@
   <sep></sep>
   <category name="Pepper">
     <block type="pepper_does">
-      <comment pinned="false" h="160" w="320">Füge hier ein, was Pepper machen soll.</comment>
+      <comment pinned="false" h="40" w="320">Füge hier ein, was Pepper machen soll.</comment>
     </block>
   </category>
   <category name="Sprache" colour="#5ba58c">
     <block type="pepper_say">
       <field name="ANIMATION">TRUE</field>
-      <comment pinned="false" h="160" w="320">Pepper sagt den angegebenen Text.
-Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
-      </comment>
+      <comment pinned="false" h="70" w="320">Pepper sagt den angegebenen Text. 
+Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.</comment>
       <value name="TEXT">
         <shadow type="text">
           <field name="TEXT">Hallo</field>
@@ -130,7 +129,7 @@ Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
     </block>
     <block type="pepper_voice_reco_list">
       <field name="RECOGNIZED" id="1*lWDH9I*0g`dn21LE-X">erkanntes_wort</field>
-      <comment pinned="false" h="160" w="320">Pepper versucht eines der Worte auf der Liste zu erkennen. Wird eines der Worte erkannt, so wird es in der ausgewählten Variable abgespeichert.</comment>
+      <comment pinned="false" h="90" w="320">Pepper versucht eines der Worte auf der Liste zu erkennen. Wird eines der Worte erkannt, so wird es in der ausgewählten Variable abgespeichert.</comment>
       <value name="WORD_LIST">
         <shadow type="lists_create_with">
           <mutation items="2"></mutation>
@@ -148,11 +147,11 @@ Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
       </value>
     </block>
     <block type="pepper_voice_reco">
-      <comment pinned="false" h="160" w="320">Pepper versucht eines der Worte zu erkennen, die in den Value-Inputs spezifiziert sind. Wird eines der Worte erkannt, werden die darunter stehende Anweisungen ausgeführt.
-      </comment>
+      <comment pinned="false" h="110" w="320">Pepper versucht eines der Worte zu erkennen, die in den Value-Inputs spezifiziert sind. 
+Wird eines der Worte erkannt, werden die darunter stehende Anweisungen ausgeführt.</comment>
     </block>
     <block type="pepper_change_volume">
-      <comment pinned="false" h="160" w="320">Setzt die Lautstärke in Prozent von 0 (Stumm) bis 100 (volle Lautstärke).</comment>
+      <comment pinned="false" h="40" w="320">Setzt die Lautstärke in Prozent von 0 (Stumm) bis 100 (volle Lautstärke).</comment>
       <value name="VOLUME">
         <shadow type="math_number">
           <field name="NUM">100</field>
@@ -163,13 +162,8 @@ Ist Gestik ausgewählt, so führt Pepper kontextabhängige Animationen aus.
   <category name="Bewegung" colour="#9fa55b">
     <block type="pepper_walk">
       <field name="DIRECTION">FORWARD</field>
-      <comment pinned="false" h="160" w="320">Pepper bewegt sich die angegebene Distanz in Metern in die angegebene kardinale Rchtung.
-Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeben.
-      
-      
-      
-      
-      </comment>
+      <comment pinned="false" h="110" w="320">Pepper bewegt sich die angegebene Distanz in Metern in die angegebene kardinale Rchtung.
+Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeben.</comment>
       <value name="DISTANCE">
         <shadow type="math_number">
           <field name="NUM">1</field>
@@ -183,7 +177,7 @@ Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeb
     </block>
     <block type="pepper_turn">
       <field name="DIRECTION">LEFT</field>
-      <comment pinned="false" h="160" w="320">Pepper dreht sich in die angegebene Richtung (von sich aus) um den angegebenen Winkel in Grad.</comment>
+      <comment pinned="false" h="70" w="320">Pepper dreht sich in die angegebene Richtung (von sich aus) um den angegebenen Winkel in Grad.</comment>
       <value name="DEGREES">
         <shadow type="math_number">
           <field name="NUM">90</field>
@@ -192,12 +186,12 @@ Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeb
     </block>
     <block type="pepper_animation">
       <field name="ANIMATION">TAICHI</field>
-      <comment pinned="false" h="160" w="320">Pepper führt eine der vordefinierten Entertainment-Animationen aus. Diese sind z.T. das Nachspielen von Tieren, Tänze oder Sportarten.</comment>
+      <comment pinned="false" h="90" w="320">Pepper führt eine der vordefinierten Entertainment-Animationen aus. Diese sind z.T. das Nachspielen von Tieren, Tänze oder Sportarten.</comment>
     </block>
   </category>
   <category name="Gesichter" colour="#5b67a5">
     <block type="pepper_save_face">
-      <comment pinned="false" h="160" w="320">Speichert das erste Gesicht, das Pepper erkennt unter dem angegebenen Namen ab. Dieser Name kann später durch Gesichtserkennung wieder abgerufen werden.</comment>
+      <comment pinned="false" h="90" w="320">Speichert das erste Gesicht, das Pepper erkennt unter dem angegebenen Namen ab. Dieser Name kann später durch Gesichtserkennung wieder abgerufen werden.</comment>
       <value name="NAME">
         <shadow type="text">
           <field name="TEXT">Max</field>
@@ -205,9 +199,8 @@ Die Geschwindigkeit (1-100) ist in Prozent der maximalen Geschwindigkeit anzugeb
       </value>
     </block>
     <block type="pepper_expression_case">
-      <comment pinned="false" h="128" w="288">Analysiert den Gesichtsausdruck der Person mit der Pepper interagiert.
-Führt dann die entsprechenden Blöcke aus, je nachdem welchen Gesichtsausdruck Pepper erkannt hat.
-      </comment>
+      <comment pinned="false" h="100" w="320">Analysiert den Gesichtsausdruck der Person mit der Pepper interagiert.
+Führt dann die entsprechenden Blöcke aus, je nachdem welchen Gesichtsausdruck Pepper erkannt hat.</comment>
     </block>
   </category>
 </xml>
